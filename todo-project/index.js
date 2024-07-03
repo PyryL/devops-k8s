@@ -1,10 +1,18 @@
 const express = require('express');
+const path = require('node:path');
 const image = require('./image');
 
 const app = express();
 
 app.get('/', (req, res) => {
-  res.type('html').send('<h1>Todo</h1><img src="/image.png"><p>Under construction...</p>');
+  res.sendFile(path.join(__dirname, 'page.html'));
+});
+
+app.get('/todos', (req, res) => {
+  res.json([
+    'todo 1',
+    'todo 2',
+  ]);
 });
 
 app.get('/image.png', async (req, res) => {

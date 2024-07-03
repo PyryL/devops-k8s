@@ -19,7 +19,7 @@ spec:
           claimName: todo-project-pvc
       containers:
       - name: todo-project
-        image: pyryl/todo-project@sha256:8d3c23aeb25c58b35fe41b6bb99c0edc6efb89a702cb42be63b2cea583bbb95d
+        image: pyryl/todo-project@sha256:7c67e24e4ca07281f2f7eaacbafac4991ecdf528da69c20adf379e8358d4dc34
         env:
         - name: PORT
           value: '3000'

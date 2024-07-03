@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-ADD package.json index.js image.js ./
+ADD package.json index.js image.js page.html ./
 
 RUN npm install --no-save
 

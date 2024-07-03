@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Todos</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Todos</h1>
+        <img src="/image.png" height="100">
+        <form>
+            <input name="todo" placeholder="Todo here..." maxlength="140">
+            <input type="submit" value="Create TODO">
+        </form>
+        <ul id="todo-list"></ul>
+        <script>
+            (async () => {
+                const response = await fetch('/todos');
+                for (let item of await response.json()) {
+                    let li = document.createElement('li');
+                    li.textContent = item;
+                    document.querySelector('#todo-list').appendChild(li);
+                }
+            })();
+        </script>
+    </body>
+</html>
