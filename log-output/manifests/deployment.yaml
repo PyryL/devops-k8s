@@ -15,4 +15,7 @@ spec:
     spec:
       containers:
       - name: logoutput
-        image: pyryl/logoutput@sha256:a293b2c9af2701f4b28884a30ce511e5231c338af6df5fa1a96e570a0f155c16
+        image: pyryl/logoutput@sha256:66f2d09e7ba93842791d20ee952eb0dfb1bb0058b99b3a3d20c364007ab294dd
+        env:
+        - name: PORT
+          value: '3000'
