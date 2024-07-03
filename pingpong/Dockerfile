@@ -7,8 +7,9 @@ ADD index.js .
 
 RUN npm install --no-save
 
-RUN chown node .
-USER node
+# disable this for now so we have permissions to PVC
+# RUN chown node .
+# USER node
 
 ENTRYPOINT ["npm"]
 CMD ["start"]

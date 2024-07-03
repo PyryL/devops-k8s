@@ -12,9 +12,16 @@ spec:
       labels:
         app: pingpong
     spec:
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: pingpong-pvc
       containers:
       - name: pingpong
-        image: pyryl/pingpong@sha256:427850874b97c9757e3f98ffcb2812050980deace5688db12b7dbe0397ae2555
+        image: pyryl/pingpong@sha256:e3479c5ed101af9208a71667782ebb0fc9877f9abf847a8e2eebbd741e307794
         env:
         - name: PORT
           value: '3000'
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
