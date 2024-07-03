@@ -13,9 +13,16 @@ spec:
       labels:
         app: todo-project
     spec:
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: todo-project-pvc
       containers:
       - name: todo-project
-        image: pyryl/todo-project@sha256:532abb082095e3595706af4cb9b824bb6e08b0e57bbca7cfeba285eee3f4fdf9
+        image: pyryl/todo-project@sha256:8d3c23aeb25c58b35fe41b6bb99c0edc6efb89a702cb42be63b2cea583bbb95d
         env:
         - name: PORT
           value: '3000'
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data

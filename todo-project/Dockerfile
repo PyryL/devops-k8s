@@ -2,13 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-ADD package.json .
-ADD index.js .
+ADD package.json index.js image.js ./
 
 RUN npm install --no-save
 
-RUN chown node .
-USER node
+# disable for now in order to have permissions to the volume
+# RUN chown node .
+# USER node
 
 ENTRYPOINT ["npm"]
 CMD ["start"]
