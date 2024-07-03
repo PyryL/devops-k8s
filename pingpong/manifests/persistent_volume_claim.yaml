@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pingpong-pvc
 spec:
-  storageClassName: general-pv
+  storageClassName: pingpong-pv
   accessModes:
     - ReadWriteOnce
   resources:
