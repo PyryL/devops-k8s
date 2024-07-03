@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingpong-dep
+spec:
+  selector:
+    matchLabels:
+      app: pingpong
+  template:
+    metadata:
+      labels:
+        app: pingpong
+    spec:
+      containers:
+      - name: pingpong
+        image: pyryl/pingpong@sha256:427850874b97c9757e3f98ffcb2812050980deace5688db12b7dbe0397ae2555
+        env:
+        - name: PORT
+          value: '3000'
