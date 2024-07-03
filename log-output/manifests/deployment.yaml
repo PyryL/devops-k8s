@@ -13,9 +13,20 @@ spec:
       labels:
         app: logoutput
     spec:
+      volumes:
+        - name: data-volume
+          emptyDir: {}
       containers:
       - name: logoutput
-        image: pyryl/logoutput@sha256:66f2d09e7ba93842791d20ee952eb0dfb1bb0058b99b3a3d20c364007ab294dd
+        image: pyryl/logoutput@sha256:a4a640be7661b3dccaabe17b4cb327d98674fd8d45ab210c9c79810cc85f4c75
         env:
         - name: PORT
           value: '3000'
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
+      - name: loginput
+        image: pyryl/loginput@sha256:516ab1c6530e9670f45cfdc029a2bb9c3b8ce2b8baf054c0235c55e7b08b7855
+        volumeMounts:
+        - name: data-volume
+          mountPath: /app/data
