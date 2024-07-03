@@ -1,0 +1,18 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-project-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-project
+  template:
+    metadata:
+      labels:
+        app: todo-project
+    spec:
+      containers:
+      - name: todo-project
+        image: pyryl/todo-project@sha256:a62407d05f8d7ae222c6f0cbf09928a88e6fc25f4c9e2a859c74023abb1fa81d
