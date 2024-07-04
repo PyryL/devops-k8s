@@ -3,6 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: todo-project-pvc
+  namespace: todo
 spec:
   storageClassName: todo-project-pv
   accessModes:
