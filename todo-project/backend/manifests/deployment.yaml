@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-backend-dep
+spec:
+  selector:
+    matchLabels:
+      app: todo-backend
+  template:
+    metadata:
+      labels:
+        app: todo-backend
+    spec:
+      containers:
+      - name: todo-backend
+        image: pyryl/todo-backend@sha256:d7b103efc367373dcaed17242d1d655bdd35ec03460cd1ccf294c3129a7a0b7e
+        env:
+        - name: PORT
+          value: '3000'

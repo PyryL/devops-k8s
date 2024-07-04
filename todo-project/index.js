@@ -8,13 +8,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'page.html'));
 });
 
-app.get('/todos', (req, res) => {
-  res.json([
-    'todo 1',
-    'todo 2',
-  ]);
-});
-
 app.get('/image.png', async (req, res) => {
   if (image.shouldLoadImage()) {
     try {
