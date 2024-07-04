@@ -1,0 +1,10 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: log-output-cnf
+  namespace: pinglog
+data:
+  information.txt: |
+    this text is from file
+  message: hello world

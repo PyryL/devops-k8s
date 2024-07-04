@@ -17,15 +17,25 @@ spec:
       volumes:
         - name: data-volume
           emptyDir: {}
+        - name: config-volume
+          configMap:
+            name: log-output-cnf
       containers:
       - name: logoutput
-        image: pyryl/logoutput@sha256:39c23ade78055c0b17a8c15c597391d16682404307110d077150ff9ea551a581
+        image: pyryl/logoutput@sha256:04b66bb12a0e32afa543cefb6b50f5800ac5ea4378524dc3e56981edad385802
         env:
         - name: PORT
           value: '3000'
+        - name: MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: log-output-cnf
+              key: message
         volumeMounts:
         - name: data-volume
           mountPath: /app/data
+        - name: config-volume
+          mountPath: /app/config
       - name: loginput
         image: pyryl/loginput@sha256:516ab1c6530e9670f45cfdc029a2bb9c3b8ce2b8baf054c0235c55e7b08b7855
         volumeMounts:

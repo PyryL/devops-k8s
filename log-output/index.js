@@ -23,7 +23,13 @@ logString();
 setInterval(logString, 5000);
 
 app.get('/', async (req, res) => {
-  res.type('text/plain').send(`${getTimestamp()}: ${randomStr}\nPing / Pongs: ${await getPingpongCounter()}`);
+  const infoFile = fs.readFileSync('/app/config/information.txt', { encoding: 'utf-8' });
+  res.type('text/plain').send([
+    `file content: ${infoFile}`,
+    `env variable: MESSAGE=${process.env.MESSAGE}`,
+    `${getTimestamp()}: ${randomStr}`,
+    `Ping / Pongs: ${await getPingpongCounter()}`,
+  ].join('\n'));
 });
 
 app.listen(process.env.PORT || 8080);
