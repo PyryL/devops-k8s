@@ -16,21 +16,15 @@ spec:
       volumes:
         - name: data-volume
           emptyDir: {}
-        - name: pingpong-volume
-          persistentVolumeClaim:
-            claimName: pingpong-pvc
       containers:
       - name: logoutput
-        image: pyryl/logoutput@sha256:d7418621bbad4438d5e9cf465119cae054f4822a78d17a259cd190521b3a5da0
+        image: pyryl/logoutput@sha256:39c23ade78055c0b17a8c15c597391d16682404307110d077150ff9ea551a581
         env:
         - name: PORT
           value: '3000'
         volumeMounts:
         - name: data-volume
           mountPath: /app/data
-        - name: pingpong-volume
-          mountPath: /app/pingpong-data
-          readOnly: true
       - name: loginput
         image: pyryl/loginput@sha256:516ab1c6530e9670f45cfdc029a2bb9c3b8ce2b8baf054c0235c55e7b08b7855
         volumeMounts:
