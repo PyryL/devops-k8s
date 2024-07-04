@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: logoutput-dep
+  namespace: pinglog
 spec:
   replicas: 1
   selector:
