@@ -1,15 +1,16 @@
 const express = require('express');
+const database = require('./database');
 
 const app = express();
 
-let counter = 0;
-
-app.get('/pingpong', (req, res) => {
-  counter++;
-  res.type('text/plain').send(`pong ${counter-1}`);
+app.get('/pingpong', async (req, res) => {
+  const counter = await database.getCounter();
+  await database.setCounter(counter+1);
+  res.type('text/plain').send(`pong ${counter}`);
 });
 
-app.get('/pingpong/api/counter', (req, res) => {
+app.get('/pingpong/api/counter', async (req, res) => {
+  const counter = await database.getCounter();
   res.json({ counter });
 });
 

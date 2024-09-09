@@ -15,7 +15,10 @@ spec:
     spec:
       containers:
       - name: pingpong
-        image: pyryl/pingpong@sha256:aa9a2779738dcad189f768e38982d9fdba539e673ebf516f4fcd66a46953659c
+        image: pyryl/pingpong@sha256:71db3e8cbd9ceb929baac8e6ff857ecd160a384dd2a84f9737397c261e317905
         env:
         - name: PORT
           value: '3000'
+        envFrom:
+        - secretRef:
+            name: pingpong-postgres-password

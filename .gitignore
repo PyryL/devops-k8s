@@ -1,2 +1,4 @@
 node_modules/
 *.hide*
+/key.txt
+secret.yaml

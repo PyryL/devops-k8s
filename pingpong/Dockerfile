@@ -4,6 +4,7 @@ WORKDIR /app
 
 ADD package.json .
 ADD index.js .
+ADD database.js .
 
 RUN npm install --no-save
 
