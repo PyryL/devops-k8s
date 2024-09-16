@@ -1,0 +1,19 @@
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: todo-wikipedia-cronjob
+  namespace: todo
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: todo-wikipedia
+            image: pyryl/todo-wikipedia@sha256:8dcd5fc5e19f754129a4cf1a1a1d4b905d54fae4a9d729918b89823a44e85cfb
+            env:
+            - name: TODO_BACKEND_URL
+              value: http://todo-backend-svc:1234/todos
+          restartPolicy: Never
