@@ -13,6 +13,14 @@ app.get('/todos', (req, res) => {
 
 app.post('/todos', express.json(), (req, res) => {
   const todo = req.body.todo;
+
+  if (todo.length > 140) {
+    console.log('blocked too long new todo', todo);
+    return res.sendStatus(400);
+  }
+
+  console.log('created new todo', todo);
+
   todos.push(todo);
   res.json(todo);
 });
