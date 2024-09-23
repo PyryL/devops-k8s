@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pingpong
-        image: pyryl/pingpong@sha256:71db3e8cbd9ceb929baac8e6ff857ecd160a384dd2a84f9737397c261e317905
+        image: pyryl/pingpong@sha256:3736ad2ced0248c1977be993c473184421ca39b6260c2ad84497dc480ea60b52
         env:
         - name: PORT
           value: '3000'

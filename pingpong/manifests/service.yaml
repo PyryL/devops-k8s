@@ -5,6 +5,7 @@ metadata:
   name: pingpong-svc
   namespace: pinglog
 spec:
+  type: LoadBalancer # for Google GKE
   selector:
     app: pingpong
   ports:
