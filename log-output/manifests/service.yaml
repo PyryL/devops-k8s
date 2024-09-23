@@ -5,7 +5,7 @@ metadata:
   name: logoutput-svc
   namespace: pinglog
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: logoutput
   ports:

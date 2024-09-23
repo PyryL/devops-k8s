@@ -22,7 +22,7 @@ spec:
             name: log-output-cnf
       containers:
       - name: logoutput
-        image: pyryl/logoutput@sha256:04b66bb12a0e32afa543cefb6b50f5800ac5ea4378524dc3e56981edad385802
+        image: pyryl/logoutput@sha256:4167c16f57e8b8063d12508c0f4f0f84afe8f3bcd243dc9858750aae0deefa94
         env:
         - name: PORT
           value: '3000'
@@ -37,7 +37,7 @@ spec:
         - name: config-volume
           mountPath: /app/config
       - name: loginput
-        image: pyryl/loginput@sha256:516ab1c6530e9670f45cfdc029a2bb9c3b8ce2b8baf054c0235c55e7b08b7855
+        image: pyryl/loginput@sha256:a04dbe1b8771e2af061379942592d859f3bdb3872b421a1270517fcaf0aac01a
         volumeMounts:
         - name: data-volume
           mountPath: /app/data

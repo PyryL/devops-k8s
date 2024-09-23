@@ -3,6 +3,10 @@ const database = require('./database');
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.get('/pingpong', async (req, res) => {
   const counter = await database.getCounter();
   await database.setCounter(counter+1);
