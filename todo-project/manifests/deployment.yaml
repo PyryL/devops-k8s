@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: todo-project
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -20,7 +22,7 @@ spec:
           claimName: todo-project-pvc
       containers:
       - name: todo-project
-        image: pyryl/todo-project@sha256:e2a496c9a82c28b9012c203a9671f7a7b36ffd8d14a70ac579783f904650c173
+        image: PROJECT/NAME
         env:
         - name: PORT
           value: '3000'

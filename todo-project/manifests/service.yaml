@@ -5,9 +5,10 @@ metadata:
   name: todo-project-svc
   namespace: todo
 spec:
+  type: LoadBalancer
   selector:
     app: todo-project
   ports:
-  - port: 1234
+  - port: 80
     protocol: TCP
     targetPort: 3000

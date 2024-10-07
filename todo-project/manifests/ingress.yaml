@@ -1,17 +1,17 @@
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: todo-project-ing
-  namespace: todo
-spec:
-  rules:
-  - http:
-      paths:
-      - pathType: Prefix
-        path: '/'
-        backend:
-          service:
-            name: todo-project-svc
-            port: 
-              number: 1234
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: todo-project-ing
+#   namespace: todo
+# spec:
+#   rules:
+#   - http:
+#       paths:
+#       - pathType: Prefix
+#         path: '/'
+#         backend:
+#           service:
+#             name: todo-project-svc
+#             port:
+#               number: 1234
