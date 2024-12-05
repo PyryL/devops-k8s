@@ -12,11 +12,11 @@ spec:
   - ReadWriteOnce
   local:
     path: /tmp/kube
-  # nodeAffinity:
-  #   required:
-  #     nodeSelectorTerms:
-  #     - matchExpressions:
-  #       - key: kubernetes.io/hostname
-  #         operator: In
-  #         values:
-  #         - k3d-k3s-default-agent-0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - gke-dwk-cluster-default-pool-7c25e8ab-07dn
