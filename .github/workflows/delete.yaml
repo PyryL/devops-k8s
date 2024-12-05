@@ -7,9 +7,6 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: dwk-cluster
   GKE_ZONE: europe-north1-b
-  IMAGE: todo
-  SERVICE: todo-project-dep
-  BRANCH: ${{ github.ref_name }}
 
 jobs:
   remove_environment:
@@ -29,5 +26,7 @@ jobs:
           location: ${{ env.GKE_ZONE }}
       - name: Delete environment
         run: |-
+          BRANCH_NAME=${{ github.event.ref }}
           BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          echo "Deleting branch environment: $BRANCH_NAME"
           kubectl delete namespace $BRANCH_NAME
