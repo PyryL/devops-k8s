@@ -5,9 +5,9 @@ metadata:
   name: todo-project-pvc
   # namespace: todo
 spec:
-  storageClassName: todo-project-pv
+  # storageClassName: todo-project-pv
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Mi
+      storage: 100Mi

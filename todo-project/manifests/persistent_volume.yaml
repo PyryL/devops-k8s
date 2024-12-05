@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   name: todo-project-pv
 spec:
-  storageClassName: todo-project-pv
+  storageClassName: ""
   capacity:
     storage: 100Mi
   volumeMode: Filesystem

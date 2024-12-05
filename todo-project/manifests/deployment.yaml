@@ -20,6 +20,13 @@ spec:
       - name: data-volume
         persistentVolumeClaim:
           claimName: todo-project-pvc
+      initContainers:
+      - name: init-volume
+        image: busybox
+        command: ["sh", "-c", "mkdir -p /tmp/kube"]
+        volumeMounts:
+        - name: data-volume
+          mountPath: /tmp/kube
       containers:
       - name: todo-project
         image: PROJECT/NAME
